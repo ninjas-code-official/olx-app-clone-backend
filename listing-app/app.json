@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "listing-app",
+    "slug": "listing-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#002f34"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.listing.app",
+      "config": {
+        "googleMapsApiKey": "AIzaSyD0vSz1qjsn_RSPBB9HRD1Eqztm7DyuKw8"
+      },
+      "usesAppleSignIn": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "This app uses the location to determine the delivery address for your orders."
+      }
+    },
+    "notification": {
+      "iosDisplayInForeground": true,
+      "color":"#a89732",
+      "icon": "./assets/icon.png",
+      "androidMode": "default",
+       "androidCollapsedTitle": "Listing"
+    },
+    "android": {
+      "versionCode": 1,
+      "package": "com.enatega.vendor",
+      "googleServicesFile": "./google-services.json",
+      "useNextNotificationsApi": true,
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyBt9S6e7ig5EkNiSXw3sCyX7kgo1gzPxl4"
+        }
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}

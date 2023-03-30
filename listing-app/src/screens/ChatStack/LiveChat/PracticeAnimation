@@ -1,0 +1,134 @@
+import { useNavigation } from '@react-navigation/native'
+import React, { useCallback, useEffect, useLayoutEffect, useRef } from 'react'
+import { View } from 'react-native'
+import { PanGestureHandler, State } from 'react-native-gesture-handler'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { LiveHeader } from '../../../components'
+import styles from './styles'
+import Animated, { Easing } from 'react-native-reanimated'
+
+const {
+    defined,
+    Clock,
+    Value,
+    set,
+    cond,
+    eq,
+    startClock,
+    clockRunning,
+    timing,
+    debug,
+    stopClock,
+    block,
+    spring,
+    event,
+    useCode,
+} = Animated;
+
+function runTiming(clock, value, dest) {
+    // //console.log('v: ', value)
+    const state = {
+        finished: new Value(0),
+        position: value,
+        time: new Value(0),
+        frameTime: new Value(0),
+    };
+
+    const config = {
+        duration: 2000,
+        toValue: dest,
+        easing: Easing.inOut(Easing.ease),
+    };
+
+    return block([
+        cond(
+            clockRunning(clock),
+            [
+                // if the clock is already running we update the toValue, in case a new dest has been passed in
+                set(config.toValue, dest),
+            ],
+            [
+                // if the clock isn't running we reset all the animation params and start the clock
+                set(state.finished, 0),
+                set(state.time, 0),
+                set(state.position, value),
+                set(state.frameTime, 0),
+                set(config.toValue, dest),
+                startClock(clock),
+            ]
+        ),
+        // we run the step here that is going to update position
+        timing(clock, state, config),
+        // if the animation is over we stop the clock
+        cond(state.finished, debug('stop clock', stopClock(clock))),
+        // we made the block return the updated position
+        state.position,
+    ]);
+}
+
+
+function LiveChat() {
+    const navigation = useNavigation()
+    var translateX = useRef(new Value(0)).current
+    const dragX = useRef(new Value(0)).current
+    const state = useRef(new Value(-1)).current
+    const transX = useRef(new Value()).current
+    const clock = new Clock()
+
+    // useEffect(() => {
+    //     setInterval(() => {
+    //         for (let index = 0; index < 5000; index++) {
+    //             //console.log(index)
+    //         }
+    //     }, 1000);
+
+    // }, [])
+
+    useCode(() => cond(eq(state, State.ACTIVE),
+        [
+            //Active State
+            stopClock(clock),
+            set(transX, dragX)
+        ], [
+        //In Active State
+        // set(transX, 100)
+        set(
+            transX,
+            cond(defined(transX), runTiming(clock, transX, new Value(0)), 0)
+        )
+    ]), [transX, dragX])
+
+    const onGestureEvent = useCallback(
+        event(
+            [{
+                nativeEvent: {
+                    translationX: dragX,
+                    state: state
+                }
+            }]
+        ), []
+    )
+
+
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            header: () => <LiveHeader />
+        })
+    }, [])
+
+
+    return (
+        <SafeAreaView edges={['bottom', 'left', 'right']} style={[styles.flex, styles.safeAreaViewStyles,]}>
+            <View style={styles.flex}>
+                <PanGestureHandler maxPointers={1} onGestureEvent={onGestureEvent} onHandlerStateChange={onGestureEvent}>
+                    <Animated.View style={[styles.box, { transform: [{ translateX: transX }] }]}>
+
+                    </Animated.View>
+                </PanGestureHandler>
+            </View>
+
+        </SafeAreaView>
+    )
+}
+
+export default React.memo(LiveChat)
