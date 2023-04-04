@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "listing-app",
+    "scheme": "listing-app",
     "slug": "listing-app",
     "version": "1.0.0",
     "orientation": "portrait",
