@@ -5,7 +5,7 @@ import CustomLoader from '../components/Loader/CustomLoader'
 // reactstrap components
 import { Card, Container, Row, Modal } from 'reactstrap'
 // core components
-import Header from 'components/Headers/Header.jsx'
+import Header from '../components/Headers/Header.jsx'
 import { categories, deleteCategory } from '../apollo/server'
 import DataTable from 'react-data-table-component'
 import orderBy from 'lodash/orderBy'

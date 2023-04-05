@@ -1,11 +1,11 @@
 import React from 'react'
 import { Container } from 'reactstrap'
-import Header from 'components/Headers/Header.jsx'
+import Header from '../components/Headers/Header.jsx'
 import { getConfiguration } from '../apollo/server'
 import OrderConfiguration from '../components/Configuration/Order/Order'
 import EmailConfiguration from '../components/Configuration/Email/Email'
 import CurrencyConfiguration from '../components/Configuration/Currency/Currency'
-import Loader from 'react-loader-spinner'
+import {TailSpin} from 'react-loader-spinner'
 import { gql, useQuery } from '@apollo/client'
 
 const GET_CONFIGURATION = gql`
@@ -21,7 +21,7 @@ const Configuration = props => {
         'Error :('
       ) : loading ? (
         <Container className="text-center mt-10" fluid>
-          <Loader
+          <TailSpin
             type="TailSpin"
             color="#002f34"
             height={300}
@@ -31,8 +31,7 @@ const Configuration = props => {
         </Container>
       ) : (
         <Container className="mt--7" fluid>
-          <Loader
-            type="TailSpin"
+          <TailSpin
             color="#FFF"
             height={25}
             width={30}

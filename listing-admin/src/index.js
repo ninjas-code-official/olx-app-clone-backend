@@ -12,12 +12,12 @@ import {
   gql
 } from '@apollo/client'
 import { WebSocketLink } from '@apollo/client/link/ws'
-import * as firebase from 'firebase/app'
+import firebase from 'firebase/app';
 import { LoadScript } from '@react-google-maps/api'
 import 'firebase/messaging'
-import 'assets/vendor/nucleo/css/nucleo.css'
-import 'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css'
-import 'assets/scss/argon-dashboard-react.scss'
+import './assets/vendor/nucleo/css/nucleo.css'
+import './assets/vendor/@fortawesome/fontawesome-free/css/all.min.css'
+import './assets/scss/argon-dashboard-react.scss'
 import { uploadToken } from '../src/apollo/server'
 
 import { ws_server_url, server_url } from './config/config'

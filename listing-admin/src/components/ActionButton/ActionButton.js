@@ -1,7 +1,7 @@
 import React from 'react'
 import { Badge } from 'reactstrap'
 import { categories, deleteCategory } from '../../apollo/server'
-import Loader from 'react-loader-spinner'
+import {ThreeDots} from 'react-loader-spinner'
 import { useMutation, gql } from '@apollo/client'
 
 const GET_CATEGORIES = gql`
@@ -34,8 +34,7 @@ function ActionButton(props) {
         </>
       )}
       {props.deleteButton && deleteLoading ? (
-        <Loader
-          type="ThreeDots"
+        <ThreeDots
           color="#BB2124"
           height={20}
           width={40}

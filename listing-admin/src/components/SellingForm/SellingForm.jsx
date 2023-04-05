@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import React, { useState } from 'react'
 import { validateFunc } from '../../constraints/constraints'
-import Loader from 'react-loader-spinner'
+import {TailSpin} from 'react-loader-spinner'
 
 // reactstrap components
 import {
@@ -135,8 +135,7 @@ function SellingForm(props) {
                   {loader ? (
                     <Col className="text-right" xs="12">
                       <Button color="primary" onClick={() => null}>
-                        <Loader
-                          type="TailSpin"
+                        <TailSpin                          
                           color="#FFF"
                           height={25}
                           width={30}

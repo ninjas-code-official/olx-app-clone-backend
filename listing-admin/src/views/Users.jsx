@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import React from 'react'
 import { Container, Row, Card } from 'reactstrap'
-import Header from 'components/Headers/Header.jsx'
+import Header from '../components/Headers/Header.jsx'
 import CustomLoader from '../components/Loader/CustomLoader'
 import { getUsers } from '../apollo/server'
 import DataTable from 'react-data-table-component'

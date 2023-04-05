@@ -16,7 +16,7 @@ import {
   InputGroupAddon
 } from 'reactstrap'
 import { GoogleMap, Marker } from '@react-google-maps/api'
-import Loader from 'react-loader-spinner'
+import {TailSpin} from 'react-loader-spinner'
 import { gql, useMutation } from '@apollo/client'
 import { updateItemStatus } from '../../apollo/server'
 
@@ -215,12 +215,12 @@ function AdDetails(props) {
                           <option value="SOLD">SOLD</option>
                         </Input>
 
-                        <InputGroupAddon addonType="append">
+                        <div className="input-group-append">
                           {updateItemLoading ? (
                             <Button color="primary" onClick={() => null}>
-                              <Loader
+                              <TailSpin
                                 className="text-center"
-                                type="TailSpin"
+                               
                                 color="#FFF"
                                 height={20}
                                 width={40}
@@ -244,7 +244,7 @@ function AdDetails(props) {
                                 {'Assign'}
                               </Button>
                             )}
-                        </InputGroupAddon>
+                        </div>
                       </InputGroup>
                     </FormGroup>
                   </Col>
