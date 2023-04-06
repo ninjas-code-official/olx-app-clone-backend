@@ -1,21 +1,37 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useRef } from 'react'
 import { View, TouchableOpacity, Modal } from 'react-native'
 import styles from './styles'
 import { DeactivateModal, TextDefault } from '../../../components'
 import { alignment, colors, scale } from '../../../utilities'
 import { Entypo } from '@expo/vector-icons'
+import { gql, useMutation } from "@apollo/client";
 import { StackActions, useNavigation } from '@react-navigation/native'
 import UserContext from '../../../context/user'
+import {Deactivate} from '../../../apollo/server'
+import { Modalize } from 'react-native-modalize'
+
+
+const DEACTIVATE = gql`
+  ${Deactivate}
+`
 
 function Settings() {
     const navigation = useNavigation()
-    const { logout } = useContext(UserContext)
+    const { logout,profile } = useContext(UserContext)
+    const [deactivated] = useMutation(DEACTIVATE)
     const [modalVisible, setModalVisible] = useState(false)
+    const modalizeRef = useRef(null)
 
     function onModalToggle() {
         setModalVisible(prev => !prev)
     }
-
+    const onClose = () => {
+        modalizeRef.current.close()
+      }
+    async function deactivatewithemail() {
+        deactivated({ variables: { isActive: false, email: profile.email } })
+      }
+    
     return (
         <View style={[styles.flex, styles.mainContainer]}>
             <TouchableOpacity style={styles.smallContainer}
@@ -52,6 +68,15 @@ function Settings() {
                     {'Logout'}
                 </TextDefault>
             </TouchableOpacity>
+            <TouchableOpacity style={styles.smallContainer}
+                onPress={async() => {
+                    modalizeRef.current.open('top')
+                }}>
+                <TextDefault bold H5 style={{color: "red", paddingLeft: 20 }}>
+                    {'Deactivate'}
+                </TextDefault>
+                
+            </TouchableOpacity>
             {/* <TouchableOpacity style={styles.smallContainer}
                 onPress={() => {
                     logout()
@@ -73,6 +98,48 @@ function Settings() {
                 modalVisible={modalVisible}
                 onModalToggle={onModalToggle}
             />
+            <Modalize
+        ref={modalizeRef}
+        adjustToContentHeight
+        handlePosition="inside"
+        avoidKeyboardLikeIOS={Platform.select({
+          ios: true,
+          android: true
+        })}
+        keyboardAvoidingOffset={2}
+        keyboardAvoidingBehavior="height">
+        <View style={{ flex: 1, alignItems: 'center' }}>
+          <TextDefault bolder H5 style={{ marginTop: 20 }}>
+            Are you Sure you want to Delete Your Account?
+          </TextDefault>
+          <TouchableOpacity
+            activeOpacity={0.7}
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: "red",
+              borderRadius: 10,
+              width: '70%',
+              padding: 15,
+              ...alignment.MTlarge
+            }}
+            onPress={async () => {
+              await deactivatewithemail()
+              logout()
+              navigation.dispatch(StackActions.popToTop())
+            }}>
+            <TextDefault center bold style={{color: "white"}}>
+              Delete Account
+            </TextDefault>
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={0.7}
+            style={{ width: '100%', paddingTop: 30, paddingBottom: 20 }}
+            onPress={() => onClose()}>
+            <TextDefault center>Cancel</TextDefault>
+          </TouchableOpacity>
+        </View>
+      </Modalize>
         </View>
     )
 }

@@ -34,16 +34,27 @@ function Registration() {
   const [loading, setLoading] = useState(false);
 
   async function onCompleted(data) {
-    try {
-      await setTokenAsync(data.login.token);
-      navigation.goBack();
-    } catch (e) {
-      //console.log(e)
-    } finally {
-      setLoading(false);
-      setLoginButton(null);
+    if (data.login.isActive == false)
+    {
+      FlashMessage({
+        message: "Can't Login, This Account is Deleted!",
+        type: "warning",
+        position: "top",
+      });
     }
-  }
+    else
+    {
+      try {
+        await setTokenAsync(data.login.token);
+        navigation.goBack();
+      } catch (e) {
+        //console.log(e)
+      } finally {
+        setLoading(false);
+        setLoginButton(null);
+      }
+    }
+    }
   //console.log("profile",profile)
   function onError(error) {
     try {

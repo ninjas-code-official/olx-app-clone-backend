@@ -4,12 +4,21 @@ mutation Login($facebookId:String,$email:String,$password:String,$type:String!,$
      userId
      token
      tokenExpiration
+     isActive
      name
      email
      phone
    }
 }
 `
+
+export const Deactivate = `
+  mutation deactivated($isActive: Boolean!, $email: String!) {
+    Deactivate(isActive: $isActive,email: $email) {
+      isActive
+    }
+  }
+  `
 
 export const categories = `query{
   categories{

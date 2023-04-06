@@ -20,7 +20,8 @@ const COLORS = ["#ffd54d", "#6df8f3", "#ff7a7a", "#d5b09f", "#eccbcb"];
 
 function MainHome() {
   const navigation = useNavigation();
-  const [filters, setFilters] = useState({ title: "Current" });
+  //const [filters, setFilters] = useState({title: "Current"});c
+  const [filters, setFilters] = useState({zone: "642e439cd320c55d90dd6cd9", title: "Islamabad", latitude: null, longitude: null });
   const [search, setSearch] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
   const [searchVisible, setSerachVisible] = useState(false);
@@ -56,7 +57,8 @@ function MainHome() {
     const locationObj = JSON.parse(locationStr);
     if (locationObj) {
       const location = { title: locationObj.label, ...locationObj, zone: null };
-      setFilters(location);
+      //setFilters(location); //add this line and remove second setFilters to get current location
+      setFilters({zone: "642e439cd320c55d90dd6cd9", title: "Islamabad", latitude: null, longitude: null });
     }
   }
 

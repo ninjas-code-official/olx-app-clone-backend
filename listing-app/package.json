@@ -52,6 +52,7 @@
     "react-native-image-progress": "^1.1.1",
     "react-native-maps": "0.31.1",
     "react-native-material-textfield": "^0.16.1",
+    "react-native-modalize": "^2.1.1",
     "react-native-paper": "^4.6.0",
     "react-native-progress": "^4.1.2",
     "react-native-reanimated": "~2.9.1",
