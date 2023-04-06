@@ -27,8 +27,9 @@ function ActionButton(props) {
               e.preventDefault()
               props.editModal(props.row)
             }}
-            color="primary">
-            {'Edit'}
+            color="primary"
+            >
+           <h6 style={{fontSize: 9, color: 'white'}}>Edit</h6>
           </Badge>
           &nbsp;&nbsp;
         </>
@@ -52,7 +53,7 @@ function ActionButton(props) {
               }
             })
           }}>
-          {'Delete'}
+          <h6 style={{fontSize: 9, color: 'white'}}>Delete</h6>
         </Badge>
       )}
     </>
