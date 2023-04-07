@@ -57,7 +57,6 @@ function EditProfile() {
 
   const phoneData = route.params && route.params.phoneData ? route.params.phoneData : PHONE_DATA;
 
-  console.log("Profile", profile);
   useLayoutEffect(() => {
     navigation.setOptions({
       title: null,

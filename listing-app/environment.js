@@ -7,14 +7,15 @@ import Constants from 'expo-constants'
 
 const ENV = {
   development: {
-    GRAPHQL_URL: 'http://10.97.10.44:8003/graphql',
-    WS_GRAPHQL_URL: 'wss://http://10.97.10.44:8003/graphql',
-    SERVER_URL: 'http://10.97.10.44', // put / at the end of server url
+    GRAPHQL_URL: 'http://10.97.28.58:8003/graphql',
+    WS_GRAPHQL_URL: 'wss://http://10.97.28.58:8003/graphql',
+    SERVER_URL: 'http://10.97.28.58', // put / at the end of server url
     IOS_CLIENT_ID_GOOGLE:
       '378663620953-btsp8b3g44tkclkqogobmp2r8t13v9vf.apps.googleusercontent.com',
     ANDROID_CLIENT_ID_GOOGLE:
       '378663620953-ocloim6fpl97fmu3tmcairgh5ju5flhl.apps.googleusercontent.com',
-    CLOUDINARY_URL: 'https://api.cloudinary.com/v1_1/dox1npbbs/image/upload'
+    CLOUDINARY_URL: 'https://api.cloudinary.com/v1_1/dox1npbbs/image/upload',
+    
   },
   staging: {
     GRAPHQL_URL: 'https://listing.ninjascode.com/graphql',

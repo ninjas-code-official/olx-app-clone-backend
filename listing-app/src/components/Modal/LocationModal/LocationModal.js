@@ -19,7 +19,6 @@ function LocationModal(props) {
   const inset = useSafeAreaInsets();
   const { data, error, loading } = useQuery(GET_ZONES);
   function btnLocation(zone) {
-    console.log('zone',zone)
     props.setFilters({ zone: zone._id, title: zone.title, latitude: null, longitude: null });
     props.onModalToggle();
   }

@@ -3,7 +3,7 @@
     "name": "listing-app",
     "scheme": "listing-app",
     "slug": "listing-app",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -30,10 +30,10 @@
     },
     "notification": {
       "iosDisplayInForeground": true,
-      "color":"#a89732",
+      "color": "#a89732",
       "icon": "./assets/icon.png",
       "androidMode": "default",
-       "androidCollapsedTitle": "Listing"
+      "androidCollapsedTitle": "Listing"
     },
     "android": {
       "versionCode": 1,
@@ -48,6 +48,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "63f135af-eb7e-4fbb-8c2b-eb36c6f29bd6"
+      }
     }
   }
 }
