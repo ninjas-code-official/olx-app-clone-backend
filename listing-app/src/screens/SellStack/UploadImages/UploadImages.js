@@ -31,6 +31,7 @@ function UploadImages() {
         const formStr = await AsyncStorage.getItem('formData')
         const formObj = JSON.parse(formStr)
         setFormData(formObj)
+        console.log(formObj);
         setImage(formObj.image??nul)
     }
 
@@ -40,9 +41,9 @@ function UploadImages() {
             quality: 1,
             base64: true
         })
-        if (!result.cancelled) {
+        if (!result.canceled) {
             setNewImage(true)
-            setImage(`data:image/jpg;base64,${result.base64}`)
+            setImage(`data:image/jpg;base64,${result.assets}`)
         }
 
     }
@@ -78,9 +79,9 @@ function UploadImages() {
             quality: 1,
             base64: true
         })
-        if (!result.cancelled) {
+        if (!result.canceled) {
             setNewImage(true)
-            setImage(`data:image/jpg;base64,${result.base64}`)
+            setImage(`data:image/jpg;base64,${result.assets}`)
         }
     }
     return (

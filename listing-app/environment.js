@@ -11,9 +11,9 @@ const ENV = {
     WS_GRAPHQL_URL: 'wss://https://listing.up.railway.app/graphql',
     SERVER_URL: 'https://listing.up.railway.app/', // put / at the end of server url
     IOS_CLIENT_ID_GOOGLE:
-    '850899622985-oa7knqkj2ki7ue2hbliluallq2jc3vjh.apps.googleusercontent.com',
+    '829683656300-vg4oqnms5lfhd5b52ouueqldbf2n632i.apps.googleusercontent.com',
     ANDROID_CLIENT_ID_GOOGLE:
-    '850899622985-6tqr67i5r652nhol1ek57s36av3jas65.apps.googleusercontent.com',
+    '829683656300-eatv70qvns1nuk8l3f4s3o9d6at843hk.apps.googleusercontent.com',
     CLOUDINARY_URL: 'https://api.cloudinary.com/v1_1/dox1npbbs/image/upload',
     
   },
@@ -22,9 +22,9 @@ const ENV = {
     WS_GRAPHQL_URL: 'wss://https://listing.up.railway.app/graphql',
     SERVER_URL: 'https://listing.up.railway.app/', // put / at the end of server url
     IOS_CLIENT_ID_GOOGLE:
-    '850899622985-oa7knqkj2ki7ue2hbliluallq2jc3vjh.apps.googleusercontent.com',
+    '829683656300-vg4oqnms5lfhd5b52ouueqldbf2n632i.apps.googleusercontent.com',
     ANDROID_CLIENT_ID_GOOGLE:
-    '850899622985-6tqr67i5r652nhol1ek57s36av3jas65.apps.googleusercontent.com',
+    '829683656300-eatv70qvns1nuk8l3f4s3o9d6at843hk.apps.googleusercontent.com',
     FACEBOOK_APP_ID: '404956210315749',
     CLOUDINARY_URL: 'https://api.cloudinary.com/v1_1/dox1npbbs/image/upload'
   },
@@ -33,9 +33,9 @@ const ENV = {
     WS_GRAPHQL_URL: 'wss://https://listing.up.railway.app/graphql',
     SERVER_URL: 'https://listing.up.railway.app/', // put / at the end of server url
     IOS_CLIENT_ID_GOOGLE:
-    '850899622985-oa7knqkj2ki7ue2hbliluallq2jc3vjh.apps.googleusercontent.com',
+    '829683656300-vg4oqnms5lfhd5b52ouueqldbf2n632i.apps.googleusercontent.com',
     ANDROID_CLIENT_ID_GOOGLE:
-    '850899622985-6tqr67i5r652nhol1ek57s36av3jas65.apps.googleusercontent.com',
+    '829683656300-eatv70qvns1nuk8l3f4s3o9d6at843hk.apps.googleusercontent.com',
     CLOUDINARY_URL: 'https://api.cloudinary.com/v1_1/dox1npbbs/image/upload'
   }
 }
