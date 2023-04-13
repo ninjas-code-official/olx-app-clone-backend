@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Container, Row, Card, Modal } from 'reactstrap'
 import AdDetails from '../components/Ad/AdDetails'
 import AdsData from '../components/Ad/AdsData'
-import Header from 'components/Headers/Header.jsx'
+import Header from '../components/Headers/Header.jsx'
 import { allItems } from '../apollo/server'
 import { useQuery, gql } from '@apollo/client'
 

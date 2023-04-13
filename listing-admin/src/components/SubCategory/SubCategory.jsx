@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { gql, useMutation, useQuery } from '@apollo/client'
 import { validateFunc } from '../../constraints/constraints'
-import Loader from 'react-loader-spinner'
+import {TailSpin} from 'react-loader-spinner'
 import {
   editSubCategory,
   createSubCategory,
@@ -200,8 +200,7 @@ function SubCategory(props) {
                   {loader ? (
                     <Col className="text-right" xs="12">
                       <Button color="primary" onClick={() => null}>
-                        <Loader
-                          type="TailSpin"
+                        <TailSpin                          
                           color="#FFF"
                           height={25}
                           width={30}

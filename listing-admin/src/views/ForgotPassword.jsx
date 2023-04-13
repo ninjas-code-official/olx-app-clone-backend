@@ -94,11 +94,11 @@ const ResetPassword = props => {
                       : 'has-danger'
                 }>
                 <InputGroup className="input-group-alternative">
-                  <InputGroupAddon addonType="prepend">
+                <div className="input-group-append">
                     <InputGroupText>
                       <i className="ni ni-lock-circle-open" />
                     </InputGroupText>
-                  </InputGroupAddon>
+                  </div>
                   <Input
                     value={password}
                     onChange={event => {
@@ -121,11 +121,11 @@ const ResetPassword = props => {
                       : 'has-danger'
                 }>
                 <InputGroup className="input-group-alternative">
-                  <InputGroupAddon addonType="prepend">
+                <div className="input-group-append">
                     <InputGroupText>
                       <i className="ni ni-lock-circle-open" />
                     </InputGroupText>
-                  </InputGroupAddon>
+                  </div>
                   <Input
                     value={confirmPassword}
                     onChange={event => {

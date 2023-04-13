@@ -1,5 +1,5 @@
-import Login from 'views/Login.jsx'
-import Category from 'views/Category.jsx'
+import Login from './views/Login.jsx'
+import Category from './views/Category.jsx'
 import Ads from './views/Ads'
 import Configuration from './views/Configuration'
 import Users from './views/Users'

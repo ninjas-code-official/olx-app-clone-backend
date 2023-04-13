@@ -12,7 +12,7 @@ import {
 import { gql, useMutation } from '@apollo/client'
 import { validateFunc } from '../../../constraints/constraints'
 import { saveEmailConfiguration } from '../../../apollo/server'
-import Loader from 'react-loader-spinner'
+import {TailSpin} from 'react-loader-spinner'
 
 const SAVE_EMAIL_CONFIGURATION = gql`
   ${saveEmailConfiguration}
@@ -142,8 +142,7 @@ function Email(props) {
                       className="btn-block mb-2"
                       color="primary"
                       onClick={() => null}>
-                      <Loader
-                        type="TailSpin"
+                      <TailSpin                        
                         color="#FFF"
                         height={25}
                         width={30}

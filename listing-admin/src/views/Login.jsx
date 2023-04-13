@@ -71,11 +71,11 @@ const Login = props => {
                       : 'has-danger'
                 }>
                 <InputGroup className="input-group-alternative">
-                  <InputGroupAddon addonType="prepend">
+                <div className="input-group-append">
                     <InputGroupText>
                       <i className="ni ni-email-83" />
                     </InputGroupText>
-                  </InputGroupAddon>
+                  </div>
                   <Input
                     value={email}
                     onChange={event => {
@@ -98,11 +98,11 @@ const Login = props => {
                       : 'has-danger'
                 }>
                 <InputGroup className="input-group-alternative">
-                  <InputGroupAddon addonType="prepend">
+                <div className="input-group-append">
                     <InputGroupText>
                       <i className="ni ni-lock-circle-open" />
                     </InputGroupText>
-                  </InputGroupAddon>
+                  </div>
                   <Input
                     value={password}
                     onChange={event => {

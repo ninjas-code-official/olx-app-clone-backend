@@ -5,7 +5,7 @@ import { validateFunc } from '../../../constraints/constraints'
 import { Typeahead } from 'react-bootstrap-typeahead'
 import { stripeCurrencies } from '../../../config/currencies'
 import { saveCurrencyConfiguration } from '../../../apollo/server'
-import Loader from 'react-loader-spinner'
+import {TailSpin} from 'react-loader-spinner'
 
 const SAVE_CURRENCY_CONFIGURATION = gql`
   ${saveCurrencyConfiguration}
@@ -139,8 +139,7 @@ function Currency(props) {
                       className="btn-block mb-2"
                       color="primary"
                       onClick={() => null}>
-                      <Loader
-                        type="TailSpin"
+                      <TailSpin
                         color="#FFF"
                         height={25}
                         width={30}

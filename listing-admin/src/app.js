@@ -1,6 +1,6 @@
 import React from 'react'
-import AdminLayout from 'layouts/Admin.jsx'
-import AuthLayout from 'layouts/Auth.jsx'
+import AdminLayout from './layouts/Admin.jsx'
+import AuthLayout from './layouts/Auth.jsx'
 import { PrivateRoute } from './views/PrivateRoute'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 function App() {
