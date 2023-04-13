@@ -75,7 +75,7 @@ function Registration() {
       const [  googleRequest,
         googleResponse,
         googlePromptAsync ]= Google.useAuthRequest({
-        expoClientId: '850899622985-d7mvcllrk33husbd1srf5gd36aq7n9d5.apps.googleusercontent.com',
+        //expoClientId: '850899622985-d7mvcllrk33husbd1srf5gd36aq7n9d5.apps.googleusercontent.com',
         iosClientId: IOS_CLIENT_ID_GOOGLE,
         androidClientId: ANDROID_CLIENT_ID_GOOGLE,
         iosStandaloneAppClientId: IOS_CLIENT_ID_GOOGLE,
