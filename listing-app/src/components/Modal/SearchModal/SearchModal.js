@@ -12,7 +12,7 @@ function SearchModal(props) {
     if (!!item) {
       props.setSearch(item);
     } else {
-      //console.log(text)
+      
       props.setSearch(text);
     }
     props.onModalToggle();

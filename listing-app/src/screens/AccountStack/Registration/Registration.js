@@ -1,7 +1,9 @@
 import { gql, useMutation } from "@apollo/client";
+import { useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import * as AppAuth from "expo-app-auth";
-import * as Google from "expo-google-app-auth";
+import * as AuthSession from 'expo-auth-session'
+import * as Google from 'expo-auth-session/providers/google'
 import * as Notifications from "expo-notifications";
 import * as Permissions from "expo-permissions";
 import React, { useContext, useState } from "react";
@@ -32,16 +34,27 @@ function Registration() {
   const [loading, setLoading] = useState(false);
 
   async function onCompleted(data) {
-    try {
-      await setTokenAsync(data.login.token);
-      navigation.goBack();
-    } catch (e) {
-      //console.log(e)
-    } finally {
-      setLoading(false);
-      setLoginButton(null);
+    if (data.login.isActive == false)
+    {
+      FlashMessage({
+        message: "Can't Login, This Account is Deleted!",
+        type: "warning",
+        position: "top",
+      });
     }
-  }
+    else
+    {
+      try {
+        await setTokenAsync(data.login.token);
+        navigation.goBack();
+      } catch (e) {
+        //console.log(e)
+      } finally {
+        setLoading(false);
+        setLoginButton(null);
+      }
+    }
+    }
   //console.log("profile",profile)
   function onError(error) {
     try {
@@ -59,29 +72,23 @@ function Registration() {
     }
   }
 
-  async function _GoogleSignUp() {
-    try {
-      const { type, user } = await Google.logInAsync({
+      const [  googleRequest,
+        googleResponse,
+        googlePromptAsync ]= Google.useAuthRequest({
+        expoClientId: '850899622985-d7mvcllrk33husbd1srf5gd36aq7n9d5.apps.googleusercontent.com',
         iosClientId: IOS_CLIENT_ID_GOOGLE,
         androidClientId: ANDROID_CLIENT_ID_GOOGLE,
         iosStandaloneAppClientId: IOS_CLIENT_ID_GOOGLE,
         androidStandaloneAppClientId: ANDROID_CLIENT_ID_GOOGLE,
-        redirectUrl: `${AppAuth.OAuthRedirect}:/oauth2redirect/google`,
+        redirectUrl: `${AuthSession.OAuthRedirect}:/oauth2redirect/google`,
         scopes: ["profile", "email"],
-      });
-      if (type === "success") return user;
-    } catch (e) {
-      if (e.code != -3) {
-        FlashMessage({ message: e.message, type: "warning", position: "top" });
-      }
-    }
-  }
+        })
 
   async function mutateLogin(user) {
     try {
       setLoading(true);
       let notificationToken = null;
-      const { status: existingStatus } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
+      const { status: existingStatus } = await Notifications.requestPermissionsAsync();
       if (existingStatus === "granted") {
         notificationToken = (await Notifications.getExpoPushTokenAsync()).data;
       }
@@ -91,6 +98,36 @@ function Registration() {
     } finally {
     }
   }
+
+  const googleSignUp = () => {
+    if (googleResponse?.type === 'success') {
+      const { authentication } = googleResponse
+      ;(async () => {
+        const userInfoResponse = await fetch(
+          'https://www.googleapis.com/oauth2/v1/userinfo?alt=json',
+          {
+            headers: { Authorization: `Bearer ${authentication.accessToken}` }
+          }
+        )
+        const googleUser = await userInfoResponse.json()
+        const user = {
+          phone: '',
+          email: googleUser.email,
+          password: '',
+          name: googleUser.name,
+          picture: googleUser.picture,
+          type: 'google'
+        }
+        mutateLogin(user)
+      })()
+    }
+  }
+
+  useEffect(() => {
+    googleSignUp()
+  }, [googleResponse])
+
+
 
   return (
     <View style={[styles.safeAreaViewStyles, styles.flex, { paddingTop: inset.top, paddingBottom: inset.bottom }]}>
@@ -106,25 +143,12 @@ function Registration() {
             style={{ width: "85%" }}
             icon="social-google"
             title=" Continue with Gmail"
-            loading={loading && loginButton === "Google"}
-            disabled={loading || loginButton}
-            onPress={async () => {
-              setLoginButton("Google");
-              const googleUser = await _GoogleSignUp();
-              if (googleUser) {
-                const user = {
-                  phone: "",
-                  email: googleUser.email,
-                  password: "",
-                  name: googleUser.name,
-                  picture: googleUser.photoUrl,
-                  type: "google",
-                };
-                mutateLogin(user);
-              } else {
-                setLoginButton(null);
-              }
+            loadingIcon={loading && loginButton === 'Google'}
+            onPressIn={() => {
+              setLoginButton('Google')
             }}
+            disabled={!googleRequest}
+            onPress={() => googlePromptAsync()}
           />
         </View>
         <View style={styles.footerContainer}>

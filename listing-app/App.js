@@ -12,7 +12,7 @@ import React, { useEffect, useState } from "react";
 import { BackHandler } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import FlashMessage from "react-native-flash-message";
-import * as Permissions from "expo-permissions";
+import { LogBox } from "react-native";
 import * as Notifications from "expo-notifications";
 import { ApolloProvider } from "@apollo/client";
 import { UserProvider } from "./src/context/user";
@@ -22,6 +22,12 @@ import { colors } from "./src/utilities";
 import setupApolloClient from "./src/apollo/index";
 import { LocationContext } from "./src/context/Location";
 import { exitAlert } from "./src/utilities/androidBackButton";
+LogBox.ignoreLogs([
+  'Warning: ...',
+  'Sentry Logger ',
+  'Constants.deviceYearClass'
+]) // Ignore log notification by message
+LogBox.ignoreAllLogs() // Ignore all log notifications
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
@@ -97,14 +103,14 @@ export default function App() {
   }
 
   async function permissionForPushNotificationsAsync() {
-    const { status: existingStatus } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
+    const { status: existingStatus } = await Notifications.getPermissionsAsync();
     let finalStatus = existingStatus;
     // only ask if permissions have not already been determined, because
     // iOS won't necessarily prompt the user a second time.
     if (existingStatus !== "granted") {
       // Android remote notification permissions are granted during the app
       // install, so this will only ask on iOS
-      const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+      const { status } = await Notifications.getPermissionsAsync();
       finalStatus = status;
     }
 

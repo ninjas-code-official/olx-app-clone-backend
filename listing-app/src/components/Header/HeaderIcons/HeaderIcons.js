@@ -153,7 +153,7 @@ function RightButton(props) {
             onRequestClose={() => setPassword(false)}
           >
             <TouchableOpacity activeOpacity={1} style={{ flex: 1 }} onPress={() => {
-              props.share()
+              props.share
               setPassword(false)
             }} >
               <BorderlessButton

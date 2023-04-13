@@ -29,9 +29,11 @@ function Price() {
     }, [])
 
     async function didFocus() {
+        console.log('here');
         const formStr = await AsyncStorage.getItem('formData')
         const formObj = JSON.parse(formStr)
         setFormData(formObj)
+        console.log(formObj);
         setPrice(formObj.price)
     }
 
@@ -41,8 +43,8 @@ function Price() {
 
         // cleanup function
         return () => {
-            Keyboard.removeListener("keyboardDidShow", _keyboardDidShow);
-            Keyboard.removeListener("keyboardDidHide", _keyboardDidHide);
+            Keyboard.removeAllListeners("keyboardDidShow", _keyboardDidShow);
+            Keyboard.removeAllListeners("keyboardDidHide", _keyboardDidHide);
         };
     }, []);
     function _keyboardDidShow() {
@@ -88,7 +90,7 @@ function Price() {
                             title='Next'
                             onPress={async () => {
                                 if (!!price) {
-
+                                    console.log(formData);
                                     await AsyncStorage.setItem('formData', JSON.stringify({ ...formData, price }))
                                     navigation.navigate('LocationConfirm')
                                 }

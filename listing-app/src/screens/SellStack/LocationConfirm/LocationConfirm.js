@@ -67,6 +67,7 @@ function LocationConfirm() {
   });
 
   function onCompleted({ createItem, editItem }) {
+    console.log('on complete');
     setLoader(false);
     const item = createItem || editItem;
     AsyncStorage.removeItem("formData");
@@ -99,7 +100,7 @@ function LocationConfirm() {
   }
 
   function onError(error) {
-    //console.log(error)
+    console.log("Error" + error)
   }
 
   useEffect(() => {
@@ -109,7 +110,7 @@ function LocationConfirm() {
   async function didFocus() {
     const formStr = await AsyncStorage.getItem("formData");
     const formObj = JSON.parse(formStr);
-    //console.log('formObj', formObj)
+    console.log('formObj', formObj)
     setMutation(formObj.editStatus ? EDIT_AD : CREATE_AD);
     setFormData(formObj);
   }
@@ -157,7 +158,7 @@ function LocationConfirm() {
   }, [regionObj]);
 
   async function _getLocationAsync() {
-    const { status } = await Permission.askAsync(Permission.LOCATION);
+    const { status } = await Location.requestForegroundPermissionsAsync();
     if (status === "granted") {
       let location = await Location.getCurrentPositionAsync({ enableHighAccuracy: true });
       let loc = {
@@ -304,7 +305,8 @@ function LocationConfirm() {
                 longitude: region.longitude.toString(),
                 address: delivery_address,
               };
-              if (!!formData) {
+              if (!!formData) { 
+                console.log(formData.location.value);               
                 mutate({
                   variables: {
                     item: {

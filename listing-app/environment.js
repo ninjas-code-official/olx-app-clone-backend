@@ -7,35 +7,35 @@ import Constants from 'expo-constants'
 
 const ENV = {
   development: {
-    GRAPHQL_URL: 'http://192.168.100.102:8003/graphql',
-    WS_GRAPHQL_URL: 'ws://192.168.100.102:8003/graphql',
-    SERVER_URL: 'http://192.168.100.102:8003/', // put / at the end of server url
+    GRAPHQL_URL: 'https://listing.up.railway.app/graphql',
+    WS_GRAPHQL_URL: 'wss://https://listing.up.railway.app/graphql',
+    SERVER_URL: 'https://listing.up.railway.app/', // put / at the end of server url
     IOS_CLIENT_ID_GOOGLE:
-      '531942178531-j7kd5f44m04nfmaf3b28hkfgc5lbp7q5.apps.googleusercontent.com',
+    '829683656300-vg4oqnms5lfhd5b52ouueqldbf2n632i.apps.googleusercontent.com',
     ANDROID_CLIENT_ID_GOOGLE:
-      '531942178531-2fqgnlqbu3gkc1f1gc7l0ffihsj271ts.apps.googleusercontent.com',
-    FACEBOOK_APP_ID: '404956210315749',
-    CLOUDINARY_URL: 'https://api.cloudinary.com/v1_1/dox1npbbs/image/upload'
+    '829683656300-eatv70qvns1nuk8l3f4s3o9d6at843hk.apps.googleusercontent.com',
+    CLOUDINARY_URL: 'https://api.cloudinary.com/v1_1/dox1npbbs/image/upload',
+    
   },
   staging: {
-    GRAPHQL_URL: 'https://listing.ninjascode.com/graphql',
-    WS_GRAPHQL_URL: 'wss://listing.ninjascode.com/graphql',
-    SERVER_URL: 'https://listing.ninjascode.com/', // put / at the end of server url
+    GRAPHQL_URL: 'https://listing.up.railway.app/graphql',
+    WS_GRAPHQL_URL: 'wss://https://listing.up.railway.app/graphql',
+    SERVER_URL: 'https://listing.up.railway.app/', // put / at the end of server url
     IOS_CLIENT_ID_GOOGLE:
-      '531942178531-j7kd5f44m04nfmaf3b28hkfgc5lbp7q5.apps.googleusercontent.com',
+    '829683656300-vg4oqnms5lfhd5b52ouueqldbf2n632i.apps.googleusercontent.com',
     ANDROID_CLIENT_ID_GOOGLE:
-      '531942178531-2fqgnlqbu3gkc1f1gc7l0ffihsj271ts.apps.googleusercontent.com',
+    '829683656300-eatv70qvns1nuk8l3f4s3o9d6at843hk.apps.googleusercontent.com',
     FACEBOOK_APP_ID: '404956210315749',
     CLOUDINARY_URL: 'https://api.cloudinary.com/v1_1/dox1npbbs/image/upload'
   },
   production: {
-    GRAPHQL_URL: 'https://listing.ninjascode.com/graphql',
-    WS_GRAPHQL_URL: 'wss://listing.ninjascode.com/graphql',
-    SERVER_URL: 'https://listing.ninjascode.com/', // put / at the end of server url
+    GRAPHQL_URL: 'https://listing.up.railway.app/graphql',
+    WS_GRAPHQL_URL: 'wss://https://listing.up.railway.app/graphql',
+    SERVER_URL: 'https://listing.up.railway.app/', // put / at the end of server url
     IOS_CLIENT_ID_GOOGLE:
-      '378663620953-btsp8b3g44tkclkqogobmp2r8t13v9vf.apps.googleusercontent.com',
+    '829683656300-vg4oqnms5lfhd5b52ouueqldbf2n632i.apps.googleusercontent.com',
     ANDROID_CLIENT_ID_GOOGLE:
-      '378663620953-ocloim6fpl97fmu3tmcairgh5ju5flhl.apps.googleusercontent.com',
+    '829683656300-eatv70qvns1nuk8l3f4s3o9d6at843hk.apps.googleusercontent.com',
     CLOUDINARY_URL: 'https://api.cloudinary.com/v1_1/dox1npbbs/image/upload'
   }
 }

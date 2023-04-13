@@ -11,11 +11,62 @@ index 0f85022..c12b3a6 100644
  
      color: PropTypes.string.isRequired,
      fontSize: PropTypes.number.isRequired,
+diff --git a/node_modules/react-native-material-textfield/src/components/counter/index.js b/node_modules/react-native-material-textfield/src/components/counter/index.js
+index 35d3264..c234e33 100644
+--- a/node_modules/react-native-material-textfield/src/components/counter/index.js
++++ b/node_modules/react-native-material-textfield/src/components/counter/index.js
+@@ -1,6 +1,6 @@
+ import PropTypes from 'prop-types';
+ import React, { PureComponent } from 'react';
+-import { Text } from 'react-native';
++import {TextPropTypes} from 'deprecated-react-native-prop-types';
+ 
+ import styles from './styles';
+ 
+@@ -12,7 +12,7 @@ export default class Counter extends PureComponent {
+     baseColor: PropTypes.string.isRequired,
+     errorColor: PropTypes.string.isRequired,
+ 
+-    style: Text.propTypes.style,
++    style: TextPropTypes.style,
+   };
+ 
+   render() {
 diff --git a/node_modules/react-native-material-textfield/src/components/field/index.js b/node_modules/react-native-material-textfield/src/components/field/index.js
-index 494bbaa..9bbf2e2 100644
+index 494bbaa..930f005 100644
 --- a/node_modules/react-native-material-textfield/src/components/field/index.js
 +++ b/node_modules/react-native-material-textfield/src/components/field/index.js
-@@ -221,6 +221,7 @@ export default class TextField extends PureComponent {
+@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
+ import React, { PureComponent } from 'react';
+ import {
+   View,
+-  Text,
+   TextInput,
+   Animated,
+   StyleSheet,
+@@ -10,6 +9,8 @@ import {
+   ViewPropTypes,
+ } from 'react-native';
+ 
++import {TextPropTypes} from 'deprecated-react-native-prop-types';
++
+ import Line from '../line';
+ import Label from '../label';
+ import Affix from '../affix';
+@@ -83,9 +84,9 @@ export default class TextField extends PureComponent {
+ 
+     labelOffset: Label.propTypes.offset,
+ 
+-    labelTextStyle: Text.propTypes.style,
+-    titleTextStyle: Text.propTypes.style,
+-    affixTextStyle: Text.propTypes.style,
++    labelTextStyle: TextPropTypes.style,
++    titleTextStyle: TextPropTypes.style,
++    affixTextStyle: TextPropTypes.style,
+ 
+     tintColor: PropTypes.string,
+     textColor: PropTypes.string,
+@@ -221,6 +222,7 @@ export default class TextField extends PureComponent {
  
      let options = {
        toValue: this.focusState(),
