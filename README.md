@@ -2,7 +2,7 @@
 
 OLO Listing App is a full-fledge solution for having a listing solution for iOS, Android and Web for dashboard. We have made sure that you get a good design for mobile and dashboard application and a complete solution for you to easily implement this app for any restaurant application.
 <br>
-[React Native](!https://github.com/facebook/react-native) with [Expo](!https://expo.io/) is used to build this application for mobile end. For dashboard panel React has been used. Both mobile and web use [Graphql](!https://graphql.org/). For State management and querying end points [Apollo Client](!https://github.com/apollographql/apollo-client) is used. The API is made using [Node](!https://nodejs.org/en/) with [Mongodb](!https://www.mongodb.com/).
+[React Native](https://github.com/facebook/react-native) with [Expo](https://expo.io/) is used to build this application for mobile end. For dashboard panel React has been used. Both mobile and web use [Graphql](https://graphql.org/). For State management and querying end points [Apollo Client](https://github.com/apollographql/apollo-client) is used. The API is made using [Node](https://nodejs.org/en/) with [Mongodb](https://www.mongodb.com/).
 
 **Note: This is the full free source code of our solution, however the backend and API is proprietary and can be obtained via paid license.**
 
