@@ -32,6 +32,11 @@ const styles = StyleSheet.create({
         backgroundColor: colors.buttonbackground,
         ...alignment.PBxSmall
     },
+    appleBtn: {
+        width: '85%',
+        height: 50,
+        fontSize: 20
+      },
     textTitle: {
         fontSize: scale(52),
         letterSpacing: scale(5),

@@ -36,7 +36,7 @@
       "androidCollapsedTitle": "Listing"
     },
     "android": {
-      "versionCode": 2,
+      "versionCode": 3,
       "package": "com.listing.app",
       "googleServicesFile": "./google-services.json",
       "useNextNotificationsApi": true,

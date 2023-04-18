@@ -9,6 +9,7 @@ import * as Permissions from "expo-permissions";
 import React, { useContext, useState } from "react";
 import { Image, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import * as AppleAuthentication from 'expo-apple-authentication'
 import getEnvVars from "../../../../environment";
 import { login } from "../../../apollo/server";
 import { FlashMessage, ModalHeader, TextDefault } from "../../../components";
@@ -30,6 +31,7 @@ function Registration() {
   const inset = useSafeAreaInsets();
   const [mutate] = useMutation(LOGIN, { onCompleted, onError });
   const { setTokenAsync } = useContext(UserContext);
+  const [enableApple, setEnableApple] = useState(false)
   const [loginButton, setLoginButton] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -84,6 +86,14 @@ function Registration() {
         scopes: ["profile", "email"],
         })
 
+        useEffect(() => {
+          checkIfSupportsAppleAuthentication()
+        }, [])
+      
+        async function checkIfSupportsAppleAuthentication() {
+          setEnableApple(await AppleAuthentication.isAvailableAsync())
+        }
+      
   async function mutateLogin(user) {
     try {
       setLoading(true);
@@ -97,6 +107,53 @@ function Registration() {
       console.log(e);
     } finally {
     }
+  }
+
+  function renderAppleAction() {
+    return (
+      <AppleAuthentication.AppleAuthenticationButton
+        buttonType={AppleAuthentication.AppleAuthenticationButtonType.CONTINUE}
+        buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.BLACK}
+        cornerRadius={10}
+        style={styles.appleBtn}
+        
+        onPress={async () => {
+          try {
+            const credential = await AppleAuthentication.signInAsync({
+              requestedScopes: [
+                AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
+                AppleAuthentication.AppleAuthenticationScope.EMAIL
+              ]
+            })
+            {
+              const user = {
+                appleId: credential.user,
+                phone: '',
+                email: credential.email,
+                password: '',
+                name:
+                  credential.fullName.givenName +
+                  ' ' +
+                  credential.fullName.familyName,
+                picture: '',
+                type: 'apple'
+              }
+              mutateLogin(user)
+            }
+            setLoginButton('Apple')
+            // signed in
+          } catch (e) {
+            if (e.code === 'ERR_CANCELLED') {
+              // handle that the user canceled the sign-in flow
+              setLoginButton(null)
+            } else {
+              // handle other errors
+              setLoginButton(null)
+            }
+          }
+        }}
+      />
+    )
   }
 
   const googleSignUp = () => {
@@ -151,6 +208,9 @@ function Registration() {
             onPress={() => googlePromptAsync()}
           />
         </View>
+        {enableApple && (
+        <View style={{flex: 1, alignItems:'center', backgroundColor: colors.buttonbackground,}}>{renderAppleAction()}</View>
+        )}
         <View style={styles.footerContainer}>
           <TextDefault textColor={colors.fontPlaceholder} bold center small>
             {"If you Continue, you are accepting"}
