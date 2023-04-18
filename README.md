@@ -1,14 +1,8 @@
 # OLO Mobile App
 
-OLO Listing App is a comprehensive solution for creating a listing application for iOS, Android, and web platforms, complete with a visually appealing design for both mobile and dashboard interfaces. Our app provides an all-in-one solution that makes it easy to implement for any application, ensuring a seamless user experience.
-
-With OLO Listing App, you can create a fully functional listing app for various purposes, whether it's for classifieds, e-commerce, real estate, or any other type of listings. The app is designed with a user-friendly interface, making it easy for users to browse and search for items, create listings, manage inventory, and communicate with buyers or sellers.
-
-The mobile app is built using cutting-edge technologies such as React Native with Expo, ensuring optimal performance and native-like experience on both iOS and Android devices. For the dashboard, web-based solution, React is utilized to provide a smooth and responsive interface for managing listings.
-
-Our app also integrates GraphQL for efficient data querying and retrieval, along with Apollo Client for robust state management and seamless interaction with API endpoints. The backend API is developed using Node.js with MongoDB as the database, ensuring reliable data storage and retrieval.
-
-Whether you need a listing app for a marketplace, e-commerce, or any other type of application, OLO Listing App provides a comprehensive solution with a sleek design, advanced features, and easy implementation for a seamless listing experience.
+OLO Listing App is a full-fledge solution for having a listing solution for iOS, Android and Web for dashboard. We have made sure that you get a good design for mobile and dashboard application and a complete solution for you to easily implement this app for any restaurant application.
+<br>
+[React Native](!https://github.com/facebook/react-native) with [Expo](!https://expo.io/) is used to build this application for mobile end. For dashboard panel React has been used. Both mobile and web use [Graphql](!https://graphql.org/). For State management and querying end points [Apollo Client](!https://github.com/apollographql/apollo-client) is used. The API is made using [Node](!https://nodejs.org/en/) with [Mongodb](!https://www.mongodb.com/).
 
 **Note: This is the full free source code of our solution, however the backend and API is proprietary and can be obtained via paid license.**
 
@@ -31,7 +25,8 @@ It has all the features that you will ever need to implement this application fo
 - Google Authentication integration
 - Mobile Responsive Dashboard
 - Zones based ads shown
-- Favourites Integration <br>
+- Favourites Integration
+  <br>
   We have made sure that the code is well structured and removed of unnecessary screens to make your development life easier. It is also integrated with the following features so you could have an even better development experience.
   <br>
 - ESLint to provide you with linting capability in Javascript.
@@ -42,7 +37,8 @@ It has all the features that you will ever need to implement this application fo
 ## Setup
 
 As we’ve mentioned above, the solution includes two separate modules. To setup these modules, follow the steps below:
-To run the module, you need to have nodejs installed on your machine. Once nodejs is installed, go to the directory and enter the following commands: npm start
+To run the module, you need to have nodejs installed on your machine. Once nodejs is installed, go to the directory and enter the following commands: **npm start**
+<br>
 The required credentials and keys have been set already. You can setup your own keys and credentials
 The version of nodejs should be between 16.0 to 18.0
 
@@ -62,7 +58,7 @@ The version of nodejs should be between 16.0 to 18.0
 
 ## High Level Architecture
 
-![](./contributingGuides/high%20level.png)
+![](./contributingGuides/highlevel.png)
 
 - User Mobile App communicates with only API Server
 - Web dashboard communicates with only API Server
@@ -77,23 +73,23 @@ The version of nodejs should be between 16.0 to 18.0
 
 **Set credentials in API in file helpers/config.js and helpers/credentials.js**
 
-Mongo User
-Mongo Password
-Mongo DB Name
-Reset Password Link
-Admin User name
-Admin Password
-User Id
-Name
+- Mongo User
+- Mongo Password
+- Mongo DB Name
+- Reset Password Link
+- Admin User name
+- Admin Password
+- User Id
+- Name
 
 **Set credentials in Admin Dashboard in file src/index.js**
 
-Firebase Api Key
-Auth Domain
-Database Url
-Project Id
-Storage Buck
-App Id
+- Firebase Api Key
+- Auth Domain
+- Database Url
+- Project Id
+- Storage Buck
+- App Id
 
 ##Technologies
 **Application program interface (API) server**
@@ -121,12 +117,12 @@ App Id
 
 ## Download
 
-<a href="https://play.google.com/store/apps/details?id=com.ecommero.app">
+<a href="https://play.google.com/store/apps/details?id=com.listing.app">
   <img alt="Download on Google Play" src="https://play.google.com/intl/en_us/badges/images/badge_new.png" height=43>
 </a>
-<a href="https://apps.apple.com/pk/app/ecommero/id1529112897">
+<!-- <a href="https://apps.apple.com/pk/app/ecommero/id1529112897">
   <img alt="Download on App Store" src="https://user-images.githubusercontent.com/7317008/43209852-4ca39622-904b-11e8-8ce1-cdc3aee76ae9.png" height=43>
-</a>
+</a> -->
 
 [Admin Dashboard](https://listing.ninjascode.com/)
 
