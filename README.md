@@ -48,17 +48,21 @@ The version of nodejs should be between 16.0 to 18.0
 
 ## Screenshots
 
-|                     Ecommero Menu                     |                 Ecommero Categories                  |                    Ecommero Items                     |
-| :---------------------------------------------------: | :--------------------------------------------------: | :---------------------------------------------------: |
-| ![](./contributingGuides/screenshots/customer11.jpeg) | ![](./contributingGuides/screenshots/Categories.png) | ![](./contributingGuides/screenshots/customer33.jpeg) |
-|                Ecommero Items Details                 |                Ecommero User Account                 |                      Track Order                      |
-|  :------------------------------------------------:   |  :------------------------------------------------:  |  :------------------------------------------------:   |
-|  ![](./contributingGuides/screenshots/rider11.jpeg)   |  ![](./contributingGuides/screenshots/rider22.jpeg)  |  ![](./contributingGuides/screenshots/rider33.jpeg)   |
-|                    Stats Overview                     |                      User Table                      |                   Products Editing                    |
-|    :--------------------------------------------:     |    :--------------------------------------------:    |    :--------------------------------------------:     |
-|    ![](./contributingGuides/screenshots/eco1.png)     |    ![](./contributingGuides/screenshots/eco2.png)    |    ![](./contributingGuides/screenshots/eco3.png)     |
+| OLO User Ads                      |              OLO Categories              |                           OLO Items |
+| --------------------------------- | :--------------------------------------: | ----------------------------------: |
+| ![](./contributingGuides/Ads.png) | ![](./contributingGuides/Categories.png) | ![](./contributingGuides/Items.png) |
+
+| OLO Items Detail                             |           OLO User Account            |                     OLO Sell Items |
+| -------------------------------------------- | :-----------------------------------: | ---------------------------------: |
+| ![](./contributingGuides/Item%20details.png) | ![](./contributingGuides/Account.png) | ![](./contributingGuides/Sell.png) |
+
+| Stats Overview                                 |             User Table             |                        Product Editing |
+| ---------------------------------------------- | :--------------------------------: | -------------------------------------: |
+| ![](./contributingGuides/Stats%20overview.png) | ![](./contributingGuides/user.png) | ![](./contributingGuides/products.png) |
 
 ## High Level Architecture
+
+![](./contributingGuides/high%20level.png)
 
 - User Mobile App communicates with only API Server
 - Web dashboard communicates with only API Server
@@ -115,6 +119,28 @@ App Id
 - Expo
 - Graphql
 
-## Documentation:
+## Download
 
-Find the link for the complete documentation of the Ecommero Solution [here](https://listing-nb.gitbook.io/olo-full-app/)
+<a href="https://play.google.com/store/apps/details?id=com.ecommero.app">
+  <img alt="Download on Google Play" src="https://play.google.com/intl/en_us/badges/images/badge_new.png" height=43>
+</a>
+<a href="https://apps.apple.com/pk/app/ecommero/id1529112897">
+  <img alt="Download on App Store" src="https://user-images.githubusercontent.com/7317008/43209852-4ca39622-904b-11e8-8ce1-cdc3aee76ae9.png" height=43>
+</a>
+
+[Admin Dashboard](https://listing.ninjascode.com/)
+
+## Documentation and Product Demo Video:
+
+Find the link for the complete documentation of the Ecommero Solution [here](https://listing-nb.gitbook.io/olo-full-app/).
+
+## Get the Latest News
+
+## Reporting an issue
+
+[Github Issues](https://github.com/Ninjas-Code-official/olxclone-backend/issues) are used to track todos, bugs, feature requests, and more.
+Also check our [discord community](https://discord.gg/ef6PT6ZH). We'd like to help.
+
+## Contributing
+
+Are you a dev and would like to help? Found a bug that you would like to work on? Great! We have written down a [doc guide](https://listing-nb.gitbook.io/olo-full-app/) so you can start easily
