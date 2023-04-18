@@ -128,7 +128,7 @@ The version of nodejs should be between 16.0 to 18.0
 
 ## Documentation and Product Demo Video:
 
-Find the link for the complete documentation of the Ecommero Solution [here](https://listing-nb.gitbook.io/olo-full-app/).
+Find the link for the complete documentation of the OLO listing app [here](https://listing-nb.gitbook.io/olo-full-app/).
 
 ## Get the Latest News
 
