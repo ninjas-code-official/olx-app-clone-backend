@@ -1,3 +1,5 @@
+![](contributingGuides/OLO%20thumbnail.png)
+
 # OLO Mobile App
 
 OLO Listing App is a full-fledge solution for having a listing solution for iOS, Android and Web for dashboard. We have made sure that you get a good design for mobile and dashboard application and a complete solution for you to easily implement this app for any restaurant application.
@@ -58,7 +60,7 @@ The version of nodejs should be between 16.0 to 18.0
 
 ## High Level Architecture
 
-![](./contributingGuides/highlevel.png)
+![](./contributingGuides/High%20level%20architecture.png)
 
 - User Mobile App communicates with only API Server
 - Web dashboard communicates with only API Server

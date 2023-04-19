@@ -3,7 +3,7 @@
     "name": "listing-app",
     "scheme": "listing-app",
     "slug": "listing-app",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -36,7 +36,7 @@
       "androidCollapsedTitle": "Listing"
     },
     "android": {
-      "versionCode": 3,
+      "versionCode": 4,
       "package": "com.listing.app",
       "googleServicesFile": "./google-services.json",
       "useNextNotificationsApi": true,
