@@ -127,7 +127,7 @@ The version of nodejs should be between 16.0 to 18.0
   <img alt="Download on App Store" src="https://user-images.githubusercontent.com/7317008/43209852-4ca39622-904b-11e8-8ce1-cdc3aee76ae9.png" height=43>
 </a> -->
 
-[Admin Dashboard](https://listing.ninjascode.com/)
+[Admin Dashboard](https://cheery-baklava-fbedf0.netlify.app/)
 
 ## Documentation and Product Demo Video:
 
